@@ -1,0 +1,29 @@
+@startuml
+Command --> Node
+
+Interface FileSystem {
+   execute (String command) : void
+}
+Class SimpleFileSystem implements FileSystem {
+}
+Interface Node extends FileSystem {
+}
+Class Directory implements Node {
+    List<Node> nodes
+}
+Class File implements Node {
+}
+Interface Command {
+    isNeeded(String command)
+    execute(String command, Node route)
+}
+Class Rm implements Command{}
+Class Touch implements Command{}
+Class Mkdir implements Command{}
+Class Rm implements Command{}
+Class Ls implements Command{}
+Class Cd implements Command{}
+Class Pwd implements Command{}
+
+
+@enduml
